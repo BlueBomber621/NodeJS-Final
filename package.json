@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-final",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "mongodb": "^6.10.0",
+    "swagger-autogen": "^2.23.7"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.1",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "description": ""
+}
