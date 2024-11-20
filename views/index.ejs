@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="<%= locals.description%>" />
-    <title><%= locals.title %></title>
-  </head>
-  <body></body>
-</html>
+<section class="greeting-area">
+  <p>Use this site to track Geometry Dash progress!</p>
+  <a href="/addlevel" class="link">Add A Level!</a>
+</section>
+
+<section class="level-area">
+  <% data.forEach(element => { %>
+  <div class="level-spot">
+    <div style="display: flex; flex-direction: column">
+      <% if (element.completed == "on") { %>
+      <p class="level-name">
+        <b>Name: <%= element.name %></b>
+        <img src="/img/checkmark.png" alt="checkmark" style="max-width: 16px" />
+      </p>
+      <p>Difficulty: <%= element.difficulty %></p>
+      <% } else { %>
+      <p class="level-name"><b>Name: <%= element.name %></b></p>
+      <p>Difficulty: <%= element.difficulty %></p>
+      <% } %>
+    </div>
+    <div style="display: flex">
+      <a href="/editlevel/<%= element._id %>" class="edit-btn">Edit Level</a>
+      <form
+        action="/deletelevel/<%= element._id %>?_method=DELETE"
+        method="post"
+      >
+        <input type="submit" value="Delete Level" class="delete-btn" />
+      </form>
+    </div>
+  </div>
+  <% }); %>
+</section>

@@ -4,8 +4,17 @@ const Schema = mongoose.Schema;
 const ObjectSchema = new Schema({
   name: {
     type: String,
-    reqired: true,
+    required: true,
+  },
+  difficulty: {
+    type: Number,
+    min: 1,
+    max: 10,
+    required: true,
+  },
+  completed: {
+    type: String,
   },
 });
 
-module.exports = ObjectSchema;
+module.exports = mongoose.model("Datas", ObjectSchema);
